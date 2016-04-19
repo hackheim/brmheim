@@ -1,0 +1,87 @@
+<html>
+<head>
+  <title>BrmHeim - LEDs and audio controlled tunnel</title>
+  <link type="text/css" rel="stylesheet" href="/static/markdown.css">
+  <style>
+      .markdown-body {
+          box-sizing: border-box;
+          min-width: 200px;
+          max-width: 980px;
+          margin: 0 auto;
+          padding: 45px;
+      }
+  </style>
+</head>
+<body class="markdown-body">
+
+
+<h1>BrmHeim - LEDs and audio controlled tunnel</h1>
+
+<p>Welcome to API server of BrmHeim project, funded by <a href="https://www.ntnu.no">NTNU (NO)</a>, <a href="http://teks.no">TEKS (NO)</a>, <a href="http://www.metamorf.no">Meta.Morf (NO)</a>, <a href="http://www.ciant.cz">CIANT (CZ)</a>, done in cooperation of hackerspaces <a href="https://brmlab.cz">Brmlab, Prague (CZ)</a> and <a href="http://hackheim.no">HackHeim, Trondheim (NO)</a></p>
+
+<h2>What ? (Project description)</h2>
+
+<p>In tunnel below the road, next to Adresseavien, in the <a href="https://www.ntnu.no/parken">AdressaParken</a>, we've added LED strips on the ceiling and connected them with audio/noise level detection, to visualise the environment and let people interact closely with the park itself.</p>
+
+<h2>Where ?</h2>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935.0768662560693!2d10.405310611716255!3d63.43251936413615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjPCsDI1JzU3LjEiTiAxMMKwMjQnMjMuNiJF!5e1!3m2!1sen!2sno!4v1460809956894" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+<h2>JSON read-only API available</h2>
+
+<ul>
+<li>Noise Level data gathering
+<ul>
+<li>Use <a href="/volume"><code>/volume</code></a> to get up to 1000 of volume samples, and list of volume measuring units</li>
+<li>To get more specific data, from either single client or from all clients in specific time-span use URL templates below
+<ul>
+<li><a href="/volume/1"><code>/volume/CLIENT_ID</code></a></li>
+<li><a href="/volume/1/2015-01-01-00-00-00/2016-12-31-00-00-00"><code>/volume/CLIENT_ID/DATETIME_FROM/DATETTIME_TO</code></a></li>
+<li><a href="/volume/1/2015-01-01/2016-12-31"><code>/volume/CLIENT_ID/DATE_FROM/DATE_TO</code></a></li>
+<li><a href="/volume/1/2015-01-01/2016-12-31-00-00-00"><code>/volume/CLIENT_ID/DATE_FROM/DATETIME_TO</code></a></li>
+<li><a href="/volume/1/2015-01-01-00-00-00/2016-12-31"><code>/volume/CLIENT_ID/DATETIME_FROM/DATE_TO</code></a></li>
+<li><a href="/volume/2015-01-01-00-00-00/2016-12-31-00-00-00"><code>/volume/DATETIME_FROM/DATETTIME_TO</code></a></li>
+<li><a href="/volume/2015-01-01/2016-12-31"><code>/volume/DATE_FROM/DATE_TO</code></a></li>
+<li><a href="/volume/2015-01-01/2016-12-31-00-00-00"><code>/volume/DATE_FROM/DATETIME_TO</code></a></li>
+<li><a href="/volume/2015-01-01-00-00-00/2016-12-31"><code>/volume/DATETIME_FROM/DATE_TO</code></a></li>
+</ul></li>
+<li><code>CLIENT_ID</code> is id of client, currently there is only one, with CLIENT_ID=1</li>
+<li><code>DATE_FROM</code>/<code>DATE_TO</code> is in format <code>YYYY-MM-DD</code> (month and day is zero prefixed, year in full form), ie. <code>2016-04-16</code></li>
+<li><code>DATETIME_FROM</code>/<code>DATETIME_TO</code> is in format <code>YYYY-MM-DD-HH-mm-ss</code> (time is also zero prefixed, in 24-hour format), ie. <code>2016-04-16-13-30-00</code></li>
+</ul></li>
+</ul>
+
+<h2>Returned JSON data format</h2>
+
+<h3> Client</h3>
+
+<p><code>json
+{
+CLIENT_ID,
+LEDS_COUNT,
+LAST_SEEN
+}
+</code></p>
+
+<h3>Volume</h3>
+
+<p><code>json
+{
+VOLUME_ID,
+VOLUME,
+DATE+TIME,
+CLIENT_ID
+}
+</code></p>
+
+<h3>Whole JSON response</h3>
+
+<p><code>json
+{
+clients: [ ... Client objects ...],
+volume: [ ... Volume objects ...]
+}
+</code></p>
+
+<p></body>
+</html></p>

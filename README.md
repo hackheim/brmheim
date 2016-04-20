@@ -14,6 +14,7 @@ Sorted by last name:
 * Torbjørn Kvåle
 * Lars-Arne Larsen
 * Wendy Ann Mansilla
+* Arvid Nilsson
 * Roy Sindre Norangshol ([@norrs](https://github.com/norrs))
 * Nikolai Andre Ek Ovesen
 * Marek Sebera

@@ -6,7 +6,23 @@ Norwegian trans-disiplinary workshop for an interactive sound visualisation.
 
 # Contributers under Hackathon
 
-LAZY BASTARDS DO PR.
+Sorted by last name:
+
+* Rom Ario
+* Espen Gangvik
+* Hans Jørgen Grimstad
+* Torbjørn Kvåle
+* Lars-Arne Larsen
+* Wendy Ann Mansilla
+* Arvid Nilsson
+* Roy Sindre Norangshol ([@norrs](https://github.com/norrs))
+* Nikolai Andre Ek Ovesen
+* Marek Sebera
+* Sindre Stene
+* Tomas Suchan
+* Embret R. Østring
+
+Missed someone, please submit PR.
 
 # Other contributers
 
